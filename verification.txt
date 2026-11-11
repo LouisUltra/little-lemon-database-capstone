@@ -1,0 +1,25 @@
+Little Lemon database — verification run
+==========================================================
+
+Tables and row counts
+  Customers    5
+  Menu         3
+  MenuItems    8
+  Bookings     5
+  Orders       5
+
+Stored procedures present
+   AddBooking
+   CancelBooking
+   GetMaxQuantity
+   ManageBooking
+   UpdateBooking
+
+Procedure calls
+  GetMaxQuantity()                 -> [(4,)]
+  ManageBooking(1)                 -> [(1, datetime.date(2026, 11, 20), 12, 1, 'Anna Iversen', '+1-555-0101')]
+  AddBooking(6,3,7,'2026-11-25')   -> [('New booking 6 added for customer 3 at table 7 on 2026-11-25',)]
+  UpdateBooking(6,'2026-11-26')    -> [('Booking 6 updated to 2026-11-26',)]
+     BookingDate now               -> 2026-11-26
+  CancelBooking(6)                 -> [('Booking 6 cancelled',)]
+     Bookings rows now             -> 5
